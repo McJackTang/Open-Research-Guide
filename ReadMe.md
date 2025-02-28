@@ -139,13 +139,13 @@ print(torch.cuda.is_available())
 这些问题不仅会影响你的工作效率，还会影响你的科研能力提升。因此，我们需要确保我们的工作可以被复现，以便更好地提升我们的科研能力。
 ### 2.4.1 GitHub版本管理
 不要使用命令的方式如`main_v1.py`这样的方式来管理代码版本，而是使用GitHub来管理代码版本，以便更好地追踪代码的修改历史。
-- **创建代码仓库:** 在GitHub上创建一个代码仓库，将你的代码上传到GitHub上，以便更好地管理你的代码。命令行操作如下：
+- **创建代码仓库:** 先在GitHub上创建一个代码仓库，将你的代码上传到GitHub上，以便更好地管理你的代码。命令行操作如下：
 ```
 git init
 git add .
 git commit -m "first commit"
 git branch -M main
-git remote add origin
+git remote add origin “your repository url”
 ```
 - **版本控制：** 在GitHub上使用版本控制，每次修改代码后，都要提交代码到GitHub上，以便更好地追踪代码的修改历史。命令行操作如下：
 ```
