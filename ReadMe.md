@@ -66,7 +66,7 @@ GitHub：[Open_Research_Guide](https://github.com/McJackTang/Open-Research-Guide
 #### 2.2.1 服务器连接
 - **命令行配置免密登录:** `ssh-keygen -t rsa`生成密钥对，将公钥`id_rsa.pub`发送给管理员添加到服务器的`~/.ssh/authorized_keys`文件
 - **命令行连接：**`ssh user@ip`，无需输入密码应该连接成功。
-- **VSCode连接：**安装Remote-SSH插件，输入`ssh user@ip`连接服务器。需要配置私钥文件路径：`~/.ssh/id_rsa`。VSCODE配置文件如下：
+- **VSCode连接：** 安装Remote-SSH插件，输入`ssh user@ip`连接服务器。需要配置私钥文件路径：`~/.ssh/id_rsa`。VSCODE配置文件如下：
 ```
 Host 10.1.1.1（服务器ip）
   User root（服务器用户名）
@@ -86,7 +86,7 @@ Host 10.1.1.1（服务器ip）
 
 #### 2.2.3 代码下载
 - **从GitHub克隆仓库：**`git clone https://github.com/ubicomplab/rPPG-Toolbox`
-- **检查分支版本：**切换到论文对应commit  
+- **检查分支版本：** 切换到论文对应commit  
 *示例：使用`git checkout a1b2c3d`回退到实验版本*
 
 #### 2.2.4 数据集下载
