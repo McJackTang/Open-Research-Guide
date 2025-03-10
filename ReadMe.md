@@ -1,7 +1,8 @@
 <!-- 作者：唐健凯 Jack Tang tjk24@mails.tsinghua.edu.cn -->
 # 科研能力提升指南
-作者：唐健凯 Jack Tang tjk24@mails.tsinghua.edu.cn
-更新日期：2025年2月
+作者：唐健凯 [Jack Tang](https://mcjacktang.github.io/) tjk24@mails.tsinghua.edu.cn
+更新日期：2025年3月
+GitHub：[Open_Research_Guide](https://github.com/McJackTang/Open-Research-Guide)
 <!-- 0. 摘要 1. 如何检索阅读文献 2. 如何复现文章算法 3. 如何调试硬件 4. 如何正确提问。
  -->
 
@@ -60,7 +61,8 @@
 ---
 
 ### 2.2 前期准备
-
+#### 2.2.0 README阅读
+- **README阅读：** 首先阅读项目的README文件，了解项目的背景、目的、数据集、模型、实验结果等信息，一般会有setup和环境配置的说明，以及如何运行代码的说明。
 #### 2.2.1 服务器连接
 - **命令行配置免密登录:** `ssh-keygen -t rsa`生成密钥对，将公钥`id_rsa.pub`发送给管理员添加到服务器的`~/.ssh/authorized_keys`文件
 - **命令行连接：**`ssh user@ip`，无需输入密码应该连接成功。
@@ -78,8 +80,8 @@ Host 10.1.1.1（服务器ip）
 #### 2.2.2 环境配置
 - **使用Conda创建虚拟环境：**`conda create -n repro python=3.8`，虚拟环境的名字通常为项目名称或者你的姓名首字母缩写。
 - **安装基础依赖：**`pip install -r requirements.txt` 或 `conda create -f environment.yml`
-- **特殊依赖处理：**CUDA版本需与PyTorch匹配(请到Pytorch官网：https://pytorch.org/get-started/previous-versions/ 查看对应版本)  
-- **解决网速限制：**可以对conda或者pip进行镜像源的配置，加快下载速度，如清华源、阿里源，conda的配置文件在`~/.condarc`，pip的配置文件在`~/.pip/pip.conf`。如果是因为服务器网速带宽限制，推荐复制已有环境，避免重复下载依赖包。
+- **特殊依赖处理：** CUDA版本需与PyTorch匹配(请到Pytorch官网：https://pytorch.org/get-started/previous-versions/ 查看对应版本)  
+- **解决网速限制：** 可以对conda或者pip进行镜像源的配置，加快下载速度，如清华源、阿里源，conda的配置文件在`~/.condarc`，pip的配置文件在`~/.pip/pip.conf`。如果是因为服务器网速带宽限制，推荐复制已有环境，避免重复下载依赖包。
 *示例：安装PyTorch时指定版本`pip install torch==1.12.1+cu113`*
 
 #### 2.2.3 代码下载
@@ -88,8 +90,8 @@ Host 10.1.1.1（服务器ip）
 *示例：使用`git checkout a1b2c3d`回退到实验版本*
 
 #### 2.2.4 数据集下载
-- **官方渠道获取：**论文附录/项目官网，注意部分数据集需要申请许可。
-- **数据集预处理：**注意标注格式转换、数据集划分 
+- **官方渠道获取：** 论文附录/项目官网，注意部分数据集需要申请许可。
+- **数据集预处理：** 注意标注格式转换、数据集划分 
 *示例：下载UBFC-rPPG:https://drive.google.com/drive/folders/1o0XU4gTIo46YfwaWjIgbtCncc-oF44Xk*
 
 #### 2.2.5 硬盘挂载
@@ -117,7 +119,7 @@ print(torch.cuda.is_available())
 - **数据集加载：** 从原始文件中读取数据，通常需要写一个`data_loader.py`文件,如果有多个数据集，可以写一个类，其他数据集继承这个类。
 - **数据预处理：** 对数据进行预处理，包括对坏数据的清洗和标注，以及对数据的格式转换和归一化处理，和如数据增强、标准化等。
 - **数据集划分：** 将数据集划分为训练集、验证集和测试集，通常按照**6:2:2**的比例划分。注意，划分时要确保是**跨样本划分**，即同一个样本不会同时出现在训练集、验证集和测试集中。
-- 数据可视化：对数据进行可视化，查看数据的分布和特征，以便更好地理解数据。
+- **数据可视化：** 对数据进行可视化，查看数据的分布和特征，以便更好地理解数据。
 *示例：对UBFC-rPPG数据集进行数据预处理，包括读取数据、数据格式转换、数据归一化、数据集划分和数据可视化。可以参考代码库：https://github.com/ubicomplab/rPPG-Toolbox/tree/main/dataset/data_loader*
 ### 2.3.3 模型训练
 - **模型选择：** 选择合适的模型，通常可以参考论文中的模型结构和超参数设置，通过命令行或者配置文件设置模型的超参数。
