@@ -149,6 +149,14 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin “your repository url”
 ```
+- **Git Ignore:** GitHub每个仓库的大小是有限制的，通常我们不会将数据集、可视化图、模型参数等大文件上传到GitHub上，可以使用`.gitignore`文件来忽略不需要上传的文件，以便更好地管理你的代码。命令行操作如下：
+```
+echo "data/" >> .gitignore
+echo "logs/" >> .gitignore
+echo "checkpoints/" >> .gitignore
+```
+但同时你需要再ReadMe中说明如何获取数据集，和数据集的文件结构与路径，并且在代码中使用相对路径，确保他人可以复现你的工作。
+  
 - **版本控制：** 在GitHub上使用版本控制，每次修改代码后，都要提交代码到GitHub上，以便更好地追踪代码的修改历史。命令行操作如下：
 ```
 git add .
